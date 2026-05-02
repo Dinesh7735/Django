@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 2px solid black;
+            border-collapse: collapse;
+            height: 50px;
+            width: 450px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Student Data</h1>
+        <table>
+            <tr>
+                <th>Sno</th>
+                <th>Sname</th>
+                <th>Sgae</th>
+                <th>Eligible to Vote</th>
+            </tr>
+            {% for stud in studs %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{stud.name}}</td>
+                <td>{{stud.age}}</td>
+                {% if stud.age >= 18 %}
+                    <td>👍</td>
+                {% else %}
+                    <td>👎</td>
+                {% endif %}
+            </tr>          
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
